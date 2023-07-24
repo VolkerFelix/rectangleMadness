@@ -1,5 +1,3 @@
-use std::ops::Range;
-
 mod rectangle;
 mod canvas;
 mod point;
