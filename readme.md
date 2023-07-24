@@ -1,1 +1,1 @@
-# Welcome to the Rectangle MadnessSSs
+# Welcome to the Rectangle Madness
