@@ -26,6 +26,11 @@ Most likely the easiest way is to use
 cargo build --release
 ```
 This will place the resulting binary under the *target/release* directory. The execution is the same as mentioned above.
+### Tests
+Use the following command to run the tests:
+```
+cargo test
+```
 ## How does the algo work
 ### Definitions
 A rectangle is defined by two points:
