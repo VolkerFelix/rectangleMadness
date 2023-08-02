@@ -10,19 +10,18 @@ pub struct Canvas {
 impl Canvas {
     pub fn new() -> Self {
         Canvas {
-            m_origin: Point::new(0, 0),
+            m_origin: Point::default(),
             m_rectangles: vec![],
         }
     }
 
-    pub fn add_rectangle(&mut self, f_rectangle: &mut Rectangle) {
-        if self.m_rectangles.is_empty() {
-            // No previous rectangles there --> place at canvas origin
-            f_rectangle.m_origin = self.m_origin;
-        }
-        else {
-            f_rectangle.m_origin = self.m_rectangles.last().unwrap().get_bottom_right_corner();
-        }
+    pub fn add_rectangle_and_update_origin(&mut self, f_rectangle: &mut Rectangle) {
+        f_rectangle.set_origin(&self.m_origin);
         self.m_rectangles.push(f_rectangle.clone());
+        self.set_next_origin_for_new_rectangle();
+    }
+
+    fn set_next_origin_for_new_rectangle(&mut self) {
+        self.m_origin = self.m_rectangles.last().unwrap().get_top_right_corner();
     }
 }
